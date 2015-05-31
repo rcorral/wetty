@@ -98,6 +98,7 @@ var wss = new ws({
 wss.on('request', function(request) {
     var term;
     var sshuser = '';
+    var loggedIn = false;
     var conn = request.accept('wetty', request.origin);
     console.log((new Date()) + ' Connection accepted.');
     if (request.resource.match('^/wetty/ssh/')) {
@@ -130,6 +131,10 @@ wss.on('request', function(request) {
                 conn.send(JSON.stringify({
                     data: data
                 }));
+                if (!loggedIn) {
+                    term.write("test1234\r");
+                    loggedIn = true;
+                }
             });
             term.on('exit', function(code) {
                 console.log((new Date()) + " PID=" + term.pid + " ENDED")

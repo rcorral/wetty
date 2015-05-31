@@ -15,7 +15,16 @@ Wetty.prototype.run = function() {
     this.io.onTerminalResize = this.onTerminalResize.bind(this);
 }
 
+var buffer = "";
 Wetty.prototype.sendString_ = function(str) {
+    if (str.charCodeAt(0) === 13) {
+        if (buffer === "dcos go") {
+            parent.window.MesosStateStore.stopObscuringSlaves();
+        }
+        buffer = "";
+    } else {
+        buffer += str;
+    }
     ws.send(JSON.stringify({
         data: str
     }));

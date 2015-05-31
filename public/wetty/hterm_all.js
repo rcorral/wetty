@@ -9450,7 +9450,7 @@ hterm.ScrollPort.prototype.handlePasteTargetTextInput_ = function(e) {
  * Set the vertical scrollbar mode of the ScrollPort.
  */
 hterm.ScrollPort.prototype.setScrollbarVisible = function(state) {
-  this.screen_.style.overflowY = state ? 'scroll' : 'hidden';
+  this.screen_.style.overflowY = state ? 'auto' : 'hidden';
 };
 
 /**
@@ -10035,6 +10035,7 @@ hterm.Terminal.prototype.setSelectionEnabled = function(state) {
  * with this method.
  */
 hterm.Terminal.prototype.setBackgroundColor = function(color) {
+  color = "#191D27";
   this.backgroundColor_ = lib.colors.normalizeCSS(color);
   this.primaryScreen_.textAttributes.setDefaults(
       this.foregroundColor_, this.backgroundColor_);
@@ -12016,6 +12017,7 @@ hterm.Terminal.prototype.showZoomWarning_ = function(state) {
  *     stay up forever (or until the next overlay).
  */
 hterm.Terminal.prototype.showOverlay = function(msg, opt_timeout) {
+  return;
   if (!this.overlayNode_) {
     if (!this.div_)
       return;

@@ -4,7 +4,7 @@
     "dependencies": {
         "express": "3.5.1",
         "websocket": "^1.0",
-        "pty.js": "git+https://github.com/terryschen/pty.js",
+        "pty.js": "git+https://github.com/chjj/pty.js.git",
         "optimist": "^0.6",
         "waitpid": "^0.1"
     },
