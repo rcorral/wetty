@@ -18,7 +18,7 @@ Wetty.prototype.run = function() {
 var buffer = "";
 Wetty.prototype.sendString_ = function(str) {
     if (str.charCodeAt(0) === 13) {
-        if (buffer === "dcos go") {
+        if (buffer === "dcos cluster resize 100") {
             parent.window.MesosStateStore.stopObscuringSlaves();
         }
         buffer = "";
