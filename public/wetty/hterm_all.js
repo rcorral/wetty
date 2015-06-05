@@ -8358,6 +8358,7 @@ hterm.ScrollPort.prototype.decorate = function(div) {
       'height: 100%;' +
       'width: 100%;' +
       'overflow: hidden;' +
+      'border-left: 10px solid rgb(25, 29, 39);' +
       '-webkit-user-select: none;' +
       '-moz-user-select: none;');
 
@@ -11888,7 +11889,7 @@ hterm.Terminal.prototype.syncCursorPosition_ = function() {
       this.scrollPort_.characterSize.height * (cursorRowIndex - topRowIndex) +
       'px';
   this.cursorNode_.style.left = this.scrollPort_.characterSize.width *
-      this.screen_.cursorPosition.column + 'px';
+      this.screen_.cursorPosition.column + 10 + 'px';
 
   this.cursorNode_.setAttribute('title',
                                 '(' + this.screen_.cursorPosition.row +
